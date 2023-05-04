@@ -3,10 +3,12 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
         switch(item.getItemId()){
             case R.id.action_add:
-                Log.v("Rubén","menu clicked");
+                Log.v("Menú","menu clicked");
+
+                Intent intent = new Intent(getApplicationContext(), AfegirCotxe.class);
+                startActivity(intent);
+
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

@@ -7,8 +7,10 @@ import android.os.Parcelable;
 import java.util.Random;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Cotxe implements Parcelable{
+public class Cotxe implements Parcelable {
+
 
    private String alias;
    private String marca;
@@ -18,6 +20,7 @@ public class Cotxe implements Parcelable{
    private boolean automatic;
    private double longitud;
    private double latitud;
+
 
    public Cotxe(String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud){
       this.alias=alias;
