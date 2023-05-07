@@ -18,7 +18,7 @@
             android:text="@string/alias" />
 
         <EditText
-            android:id="@+id/alias"
+            android:id="@+id/etAlias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -39,7 +39,7 @@
             android:text="@string/marca" />
 
         <EditText
-            android:id="@+id/marca"
+            android:id="@+id/etMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -61,7 +61,7 @@
             android:text="@string/model" />
 
         <EditText
-            android:id="@+id/model"
+            android:id="@+id/etModel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -82,7 +82,7 @@
             android:text="@string/cilindrada" />
 
         <EditText
-            android:id="@+id/cilindrada"
+            android:id="@+id/etCilindrada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -105,7 +105,7 @@
             android:text="@string/telefon" />
 
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/etTelefon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -121,7 +121,7 @@
         android:paddingLeft="100dp">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/chBoxAutomatic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -142,7 +142,7 @@
             android:text="@string/longitud" />
 
         <EditText
-            android:id="@+id/length"
+            android:id="@+id/etLongitud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -165,7 +165,7 @@
             android:text="@string/latitiud" />
 
         <EditText
-            android:id="@+id/latitude"
+            android:id="@+id/etLatitud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -195,6 +195,7 @@
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="cancelBtn"
             android:text="@string/cancelar" />
     </LinearLayout>
 
