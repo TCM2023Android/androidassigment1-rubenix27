@@ -2,9 +2,13 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +29,26 @@ public class AfegirCotxe extends AppCompatActivity{
         etLongitud= findViewById(R.id.etLongitud);
         etLatitud= findViewById(R.id.etLatitud);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_datail_cotxe,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.action_back:
+                Log.v("Menú","menu clicked");
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void recollirDadesCotxe(View view){
