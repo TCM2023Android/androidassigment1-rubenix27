@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="escriu_alias">Esctiu un alias</string>
+    <string name="escriu_marca">Escriu la marca</string>
+    <string name="escriu_model">Escriu el model</string>
+    <string name="capacitat_cilindrada">Escriu la capacitat de la cilindrada</string>
+    <string name="escriu_telefon">Escriu un telefon</string>
+    <string name="automatic">Automatic</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitiud">Latitud</string>
+    <string name="escriu_longitud">Escriu la longitud</string>
+    <string name="escriu_latitud">Escriu la Latitud</string>
+    <string name="telefon">Telefon</string>
+    <string name="cilindrada">Cilindrada</string>
+    <string name="model">Model</string>
+    <string name="marca">Marca</string>
+    <string name="alias">Alias</string>
 </resources>

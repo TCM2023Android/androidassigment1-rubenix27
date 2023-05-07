@@ -15,14 +15,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Alias" />
+            android:text="@string/alias" />
 
         <EditText
             android:id="@+id/alias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Type alias"
+            android:hint="@string/escriu_alias"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -36,14 +36,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Marca" />
+            android:text="@string/marca" />
 
         <EditText
             android:id="@+id/marca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Type Brand"
+            android:hint="@string/escriu_marca"
             android:inputType="textPersonName" />
 
     </LinearLayout>
@@ -58,14 +58,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Model" />
+            android:text="@string/model" />
 
         <EditText
             android:id="@+id/model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Type model"
+            android:hint="@string/escriu_model"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -79,7 +79,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Cylinder" />
+            android:text="@string/cilindrada" />
 
         <EditText
             android:id="@+id/cilindrada"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Type cylinder capacity"
+            android:hint="@string/capacitat_cilindrada"
             android:inputType="numberDecimal" />
 
     </LinearLayout>
@@ -102,7 +102,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Phone" />
+            android:text="@string/telefon" />
 
         <EditText
             android:id="@+id/phone"
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Type phone"
+            android:hint="@string/escriu_telefon"
             android:inputType="phone" />
     </LinearLayout>
 
@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Automatic" />
+            android:text="@string/automatic" />
 
     </LinearLayout>
 
@@ -139,7 +139,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Length" />
+            android:text="@string/longitud" />
 
         <EditText
             android:id="@+id/length"
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Type length"
+            android:hint="@string/escriu_longitud"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -162,7 +162,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Latitude" />
+            android:text="@string/latitiud" />
 
         <EditText
             android:id="@+id/latitude"
@@ -170,19 +170,32 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Type latitude"
+            android:hint="@string/escriu_latitud"
             android:inputType="numberDecimal" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/purple_200"
-        android:onClick="recollirDadesCotxe"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="SAVE" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/purple_200"
+            android:onClick="recollirDadesCotxe"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/guardar" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelar" />
+    </LinearLayout>
+
 </LinearLayout>

@@ -3,11 +3,14 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AfegirCotxe extends AppCompatActivity{
+
+    EditText editText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
