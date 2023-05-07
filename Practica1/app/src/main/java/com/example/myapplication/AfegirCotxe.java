@@ -25,8 +25,6 @@ public class AfegirCotxe extends AppCompatActivity{
         etLongitud= findViewById(R.id.etLongitud);
         etLatitud= findViewById(R.id.etLatitud);
 
-
-
     }
 
     public void recollirDadesCotxe(View view){
@@ -35,20 +33,23 @@ public class AfegirCotxe extends AppCompatActivity{
         String model = etModel.getText().toString();
         String cilindrada =etCilindrada.getText().toString();
         String telefon =etTelefon.getText().toString();
-
-
+        String longitud =etLongitud.getText().toString();
         String latitud = etLatitud.getText().toString();
 
 
         Intent resultat = new Intent();
         //mirar
-        resultat.putExtra("text_resultat", (CharSequence) etAlias);
+        resultat.putExtra("text_resultat", alias);
         setResult(RESULT_OK,resultat);
         finish(); //tanca la pantalla
     }
 
-    public void cancelBtn(View view){
+    public void deleteBtn(View view){
 
+    }
+
+
+    public void cancelBtn(View view){
         finish();
     }
 
