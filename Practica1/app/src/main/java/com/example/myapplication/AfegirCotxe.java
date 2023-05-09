@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AfegirCotxe extends AppCompatActivity{
 
     EditText etAlias, etMarca, etModel, etCilindrada, etTelefon, etLongitud, etLatitud;
+
+    private ArrayList<Cotxe> data;
+
+    public AfegirCotxe(ArrayList<Cotxe> data){
+        this.data=data;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -36,7 +36,6 @@ public class Cotxe implements Parcelable {
    public Cotxe(Parcel in) {
       super();
       //readFromParcel(in);
-
    }
 
    public String getAlias() {
