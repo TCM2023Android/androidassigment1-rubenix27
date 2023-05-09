@@ -16,12 +16,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<Cotxe> dataSet;
+
     RecyclerView recyclerView;
 
     CotxeAdapter cotxeAdapter;
 
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<Cotxe> dataSet;
 
     AfegirCotxe afegirCotxe;
 
@@ -45,13 +46,17 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setAdapter(cotxeAdapter);
 
         }
+        cotxeAdapter=new CotxeAdapter(dataSet);
+        recyclerView.setAdapter(cotxeAdapter);
+
 
     }
 
     private void createDummyContent() {
         dataSet.add(new Cotxe("1234DYD", "SEAT", "IBIZA", 23, 64323232, false, 444, 444));
+        dataSet.add(new Cotxe("9843FFF", "SEAT", "LEON", 40, 64323232, true, 444, 444));
+
         //String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud
-        // dataSet.add(new Task("Task 2", "Seat"));
     }
 
 
@@ -68,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_add:
                 Log.v("Menú", "menu clicked");
 
-                Intent intent = new Intent(getApplicationContext(), AfegirCotxe.class);
+                Intent intent = new Intent(this, AfegirCotxe.class);
                 startActivity(intent);
+
 
                 break;
         }

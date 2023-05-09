@@ -23,6 +23,8 @@ public class AfegirCotxe extends AppCompatActivity{
     public AfegirCotxe(ArrayList<Cotxe> data){
         this.data=data;
     }
+    public AfegirCotxe(){
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

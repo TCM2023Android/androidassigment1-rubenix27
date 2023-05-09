@@ -14,6 +14,12 @@ public class CotxeAdapter extends RecyclerView.Adapter<CotxeAdapter.ViewHolder>{
 
     private ArrayList<Cotxe> data;
 
+
+    public CotxeAdapter(ArrayList<Cotxe> data){
+        this.data=data;
+    }
+
+
     @NonNull
     @Override
     public CotxeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
