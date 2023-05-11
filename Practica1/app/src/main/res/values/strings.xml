@@ -2,7 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
-    <string name="escriu_alias">Esctiu un alias</string>
+    <string name="escriu_matricula">Esctiu una matrícula</string>
     <string name="escriu_marca">Escriu la marca</string>
     <string name="escriu_model">Escriu el model</string>
     <string name="capacitat_cilindrada">Escriu la capacitat de la cilindrada</string>
@@ -16,6 +16,6 @@
     <string name="cilindrada">Cilindrada</string>
     <string name="model">Model</string>
     <string name="marca">Marca</string>
-    <string name="alias">Alias</string>
+    <string name="plate">Plate</string>
     <string name="eliminar">Eliminar</string>
 </resources>

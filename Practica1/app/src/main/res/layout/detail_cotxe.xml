@@ -15,14 +15,14 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@string/alias" />
+            android:text="@string/plate" />
 
         <EditText
             android:id="@+id/etAlias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/escriu_alias"
+            android:hint="@string/escriu_matricula"
             android:inputType="textPersonName" />
     </LinearLayout>
 

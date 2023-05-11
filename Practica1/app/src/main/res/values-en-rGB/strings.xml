@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="escriu_marca">Type brand</string>
+    <string name="escriu_model">Type model</string>
+    <string name="capacitat_cilindrada">Type cylinder capacity</string>
+    <string name="escriu_telefon">Type phone number</string>
+    <string name="automatic">Is automatic</string>
+    <string name="longitud">Longitude</string>
+    <string name="latitiud">Latitude</string>
+    <string name="escriu_longitud">Type longitude</string>
+    <string name="escriu_latitud">Type latitude</string>
+    <string name="telefon">Phone number</string>
+    <string name="cilindrada">Cylinder capacity</string>
+    <string name="model">Model</string>
+    <string name="marca">Brand</string>
+    <string name="plate">Plate</string>
+    <string name="eliminar">Delete</string>
+    <string name="escriu_matricula">Type a plate</string>
+</resources>
