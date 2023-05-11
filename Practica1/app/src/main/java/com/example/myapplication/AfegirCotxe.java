@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AfegirCotxe extends AppCompatActivity{
 
     EditText etAlias, etMarca, etModel, etCilindrada, etTelefon, etLongitud, etLatitud;
+    CheckBox chBoxAutomatic;
 
     private ArrayList<Cotxe> data;
 
@@ -36,8 +39,13 @@ public class AfegirCotxe extends AppCompatActivity{
         etModel= findViewById(R.id.etModel);
         etCilindrada= findViewById(R.id.etCilindrada);
         etTelefon= findViewById(R.id.etTelefon);
+
+        chBoxAutomatic = findViewById(R.id.chBoxAutomatic);
+
         etLongitud= findViewById(R.id.etLongitud);
         etLatitud= findViewById(R.id.etLatitud);
+
+
 
     }
 
@@ -65,10 +73,12 @@ public class AfegirCotxe extends AppCompatActivity{
         String alias = etAlias.getText().toString();
         String marca = etMarca.getText().toString();
         String model = etModel.getText().toString();
-        String cilindrada =etCilindrada.getText().toString();
-        String telefon =etTelefon.getText().toString();
-        String longitud =etLongitud.getText().toString();
-        String latitud = etLatitud.getText().toString();
+        Editable cilindrada = etCilindrada.getText();
+        Editable telefon =etTelefon.getText();
+        // falta recollir el valor del checkbox
+        // boolean automatic = chBoxAutomatic.;
+        Editable longitud =etLongitud.getText();
+        Editable latitud = etLatitud.getText();
 
 
         Intent resultat = new Intent();
@@ -76,6 +86,26 @@ public class AfegirCotxe extends AppCompatActivity{
         resultat.putExtra("text_resultat", alias);
         setResult(RESULT_OK,resultat);
         finish(); //tanca la pantalla
+
+        //data.add(new Cotxe(alias,marca,model,cilindrada,telefon,longitud,latitud));
+
+        // String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud
+
+
+
+        /*
+        String text= etTask.getText().toString();
+        String marca = etMarca.getText().toString();
+        dataSet.add(new Task(text,marca));
+        taskAdapter.notifyDataSetChanged();
+        etTask.setText("");
+        etMarca.setText("");
+         */
+
+
+
+
+
     }
 
     public void deleteBtn(View view){
