@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -35,7 +36,7 @@ public class Cotxe implements Parcelable {
    }
    public Cotxe(Parcel in) {
       super();
-      //readFromParcel(in);
+      readFromParcel(in);
    }
 
    public String getAlias() {
@@ -121,6 +122,36 @@ public class Cotxe implements Parcelable {
 
    @Override
    public void writeToParcel(@NonNull Parcel parcel, int i) {
+      parcel.writeString(alias);
+      parcel.writeString(marca);
+      parcel.writeString(model);
+      parcel.writeDouble(cilindrada);
+      parcel.writeLong(telefon);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+         parcel.writeBoolean(automatic);
+      }
+      parcel.writeDouble(longitud);
+      parcel.writeDouble(latitud);
 
    }
+
+   public void readFromParcel(Parcel in){
+      alias=in.readString();
+      marca=in.readString();
+      model=in.readString();
+      cilindrada=in.readDouble();
+      telefon=in.readLong();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+         if (in.readBoolean()) automatic = true;
+         else automatic = false;
+      }
+      longitud=in.readDouble();
+      latitud=in.readDouble();
+
+
+
+
+   }
+
+
 }

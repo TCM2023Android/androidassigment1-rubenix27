@@ -45,8 +45,6 @@ public class AfegirCotxe extends AppCompatActivity{
         etLongitud= findViewById(R.id.etLongitud);
         etLatitud= findViewById(R.id.etLatitud);
 
-
-
     }
 
     @Override
@@ -73,37 +71,31 @@ public class AfegirCotxe extends AppCompatActivity{
         String alias = etAlias.getText().toString();
         String marca = etMarca.getText().toString();
         String model = etModel.getText().toString();
-        Editable cilindrada = etCilindrada.getText();
-        Editable telefon =etTelefon.getText();
-        // falta recollir el valor del checkbox
-        // boolean automatic = chBoxAutomatic.;
-        Editable longitud =etLongitud.getText();
-        Editable latitud = etLatitud.getText();
+        String cilindrada = etCilindrada.getText().toString();
+        String telefon =etTelefon.getText().toString();
+        String longitud =etLongitud.getText().toString();
+        String latitud = etLatitud.getText().toString();
+        //BOOLEAN
+        //FALTA BOOLEAN AUTOMATIC
+        boolean a = chBoxAutomatic.isChecked();
+        double dCilindrada = Double.parseDouble(cilindrada);
+        Long lTelefon = Long.parseLong(telefon);
+
+        double dLongitud = Double.parseDouble(longitud);
+        double dLatitud = Double.parseDouble(latitud);
+
+        //Cotxe cotxe = new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud);
 
 
         Intent resultat = new Intent();
         //mirar
-        resultat.putExtra("text_resultat", alias);
+
+        //resultat.putExtra("text_resultat",);
         setResult(RESULT_OK,resultat);
         finish(); //tanca la pantalla
 
-        //data.add(new Cotxe(alias,marca,model,cilindrada,telefon,longitud,latitud));
 
-        // String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud
-
-
-
-        /*
-        String text= etTask.getText().toString();
-        String marca = etMarca.getText().toString();
-        dataSet.add(new Task(text,marca));
-        taskAdapter.notifyDataSetChanged();
-        etTask.setText("");
-        etMarca.setText("");
-         */
-
-
-
+        data.add(new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud));
 
 
     }
