@@ -33,6 +33,8 @@ public class AfegirCotxe extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_cotxe);
+//fletxa enrere (esquerra)
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         etAlias= findViewById(R.id.etAlias);
         etMarca= findViewById(R.id.etMarca);
@@ -53,7 +55,7 @@ public class AfegirCotxe extends AppCompatActivity{
         return true;
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.action_back:
@@ -65,7 +67,7 @@ public class AfegirCotxe extends AppCompatActivity{
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     public void recollirDadesCotxe(View view){
         String alias = etAlias.getText().toString();
