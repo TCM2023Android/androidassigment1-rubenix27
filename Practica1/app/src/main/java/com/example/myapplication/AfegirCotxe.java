@@ -21,11 +21,8 @@ public class AfegirCotxe extends AppCompatActivity{
     EditText etAlias, etMarca, etModel, etCilindrada, etTelefon, etLongitud, etLatitud;
     CheckBox chBoxAutomatic;
 
-    private ArrayList<Cotxe> data;
-
-    public AfegirCotxe(ArrayList<Cotxe> data){
-        this.data=data;
-    }
+    private ArrayList<Cotxe> llistaCotxes;
+    private boolean modificar = false;
     public AfegirCotxe(){
     }
 
@@ -41,11 +38,12 @@ public class AfegirCotxe extends AppCompatActivity{
         etModel= findViewById(R.id.etModel);
         etCilindrada= findViewById(R.id.etCilindrada);
         etTelefon= findViewById(R.id.etTelefon);
-
         chBoxAutomatic = findViewById(R.id.chBoxAutomatic);
-
         etLongitud= findViewById(R.id.etLongitud);
         etLatitud= findViewById(R.id.etLatitud);
+
+        llistaCotxes = new ArrayList<>();
+
 
     }
 
@@ -77,29 +75,26 @@ public class AfegirCotxe extends AppCompatActivity{
         String telefon =etTelefon.getText().toString();
         String longitud =etLongitud.getText().toString();
         String latitud = etLatitud.getText().toString();
-        //BOOLEAN
-        //FALTA BOOLEAN AUTOMATIC
         boolean a = chBoxAutomatic.isChecked();
         double dCilindrada = Double.parseDouble(cilindrada);
         Long lTelefon = Long.parseLong(telefon);
-
         double dLongitud = Double.parseDouble(longitud);
         double dLatitud = Double.parseDouble(latitud);
 
-        //Cotxe cotxe = new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud);
+        Cotxe cotxe = new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud);
 
-
-        Intent resultat = new Intent();
-        //mirar
-
-        //resultat.putExtra("text_resultat",);
-        setResult(RESULT_OK,resultat);
+        if(modificar){
+            Intent intentModificat = new Intent();
+            intentModificat.putExtra("car_modificar",cotxe);
+            setResult(RESULT_OK, intentModificat);
+        }else{
+            Intent intentAfegir = new Intent(getApplicationContext(),MainActivity.class);
+            //MIRAR COM FER EL ADD, ells el add el tenen com un CASE de un activityResult
+            intentAfegir.putExtra("escriu_cotxe", MainActivity.ADD);
+            intentAfegir.putExtra("Afegir_cotxe",cotxe);
+            setResult(RESULT_OK,intentAfegir);
+        }
         finish(); //tanca la pantalla
-
-
-        data.add(new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud));
-
-
     }
 
     public void deleteBtn(View view){

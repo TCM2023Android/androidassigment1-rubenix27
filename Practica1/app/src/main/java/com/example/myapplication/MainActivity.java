@@ -20,16 +20,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Cotxe> dataSet;
-
+    ArrayList<Cotxe> llistaCotxes;
     RecyclerView recyclerView;
 
     CotxeAdapter cotxeAdapter;
 
     RecyclerView.LayoutManager layoutManager;
 
-    AfegirCotxe afegirCotxe;
     ActivityResultLauncher<Intent> activityResultLauncher, passingTextResult;
+    public static final int ADD = R.id.action_add;
 
 
     @Override
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dataSet = new ArrayList<>();
+        llistaCotxes = new ArrayList<>();
 
         recyclerView = findViewById(R.id.list);
 
@@ -45,25 +44,34 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
 
+        activityResultLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode()==RESULT_OK){
+                    switch (result.getData().getIntExtra("tipus",0)){
+                        case ADD:
+                            Cotxe cotxe = result.getData().getParcelableExtra("addCotxe");
+                            llistaCotxes.add(cotxe);
+                            cotxeAdapter.notifyDataSetChanged();
+                            break;
+                    }
+                }
+            }
+        });
 
         if (savedInstanceState == null) {
             createDummyContent();
-            afegirCotxe = new AfegirCotxe(dataSet);
+            cotxeAdapter = new CotxeAdapter(llistaCotxes);
+            //cotxeAdapter.setClickListener(this);
             recyclerView.setAdapter(cotxeAdapter);
 
         }
-        cotxeAdapter=new CotxeAdapter(dataSet);
-        recyclerView.setAdapter(cotxeAdapter);
-
-
 
     }
 
     private void createDummyContent() {
-        dataSet.add(new Cotxe("1234DYD", "SEAT", "IBIZA", 23, 64323232, false, 444, 444));
-        dataSet.add(new Cotxe("9843FFF", "SEAT", "LEON", 40, 64323232, true, 444, 444));
-
-        //String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud
+        llistaCotxes.add(new Cotxe("1234DYD", "SEAT", "IBIZA", 23, 64323232, false, 444, 444));
+        llistaCotxes.add(new Cotxe("9843FFF", "SEAT", "LEON", 40, 64323232, true, 444, 444));
     }
 
 
@@ -81,7 +89,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("Menú", "menu clicked");
 
                 Intent intent = new Intent(this, AfegirCotxe.class);
-                startActivity(intent);
+                intent.putExtra("llista_cotxes",llistaCotxes);
+                intent.putExtra("escriure_cotxe", ADD);
+                activityResultLauncher.launch(intent);
+
+                //startActivity(intent);
 
 
                 break;
@@ -89,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /* @Override
+    public void onClick(View vie, int position){
+      Intent intent = new Intent(getApplicationContext(), infoCotxe.class);
+      intent.putExtra("cotxe", llistaCotxes.get(position));
+      activityResultLauncher.launch(intent);
+    }
+
+     */
 
 
 
