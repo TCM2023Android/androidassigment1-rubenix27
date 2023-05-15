@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import static android.os.FileObserver.DELETE;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -31,11 +32,8 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
 
     ArrayList<Cotxe> llistaCotxes;
     RecyclerView recyclerView;
-
     CotxeAdapter cotxeAdapter;
-
     RecyclerView.LayoutManager layoutManager;
-
     ActivityResultLauncher<Intent> activityResultLauncher, passingTextResult;
     public static final int ADD = R.id.action_add;
     //AFEGIR UN UPDATE
@@ -47,11 +45,8 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
         setContentView(R.layout.activity_main);
 
         llistaCotxes = new ArrayList<>();
-
         recyclerView = findViewById(R.id.list);
-
         layoutManager = new LinearLayoutManager(this);
-
         recyclerView.setLayoutManager(layoutManager);
 
         activityResultLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -64,6 +59,20 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
                             llistaCotxes.add(cotxe);
                             cotxeAdapter.notifyDataSetChanged();
                             break;
+                        case DELETE:
+                            Cotxe deleteCar = result.getData().getParcelableExtra("eliminarCotxe");
+                            int positionDeleteCar = positionOfCar(deleteCar);
+                            llistaCotxes.remove(positionDeleteCar);
+                            cotxeAdapter.notifyItemRemoved(positionDeleteCar);
+                            break;
+                        /*case UPDATE:
+                            Cotxe modifyCar = result.getData().getParcelableExtra("actualitzarCotxe");
+                            int positionModifyCar = positionOfCar(modifyCar);
+                            llistaCotxes.remove(positionModifyCar);
+                            cotxeAdapter.notifyItemRemoved(positionModifyCar);
+                            llistaCotxes.add(modifyCar);
+                            cotxeAdapter.notifyDataSetChanged();
+                        */
                     }
                 }
             }
@@ -110,5 +119,31 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
       activityResultLauncher.launch(intent);
     }
 
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            layoutManager = new GridLayoutManager(this, 2);
+        } else {
+            layoutManager = new LinearLayoutManager(this);
+        }
+        recyclerView.setLayoutManager(layoutManager);
+    }
 
+    private int positionOfCar(Cotxe cotxe) {
+        String carId = cotxe.getAlias();
+        int position = 0;
+        for (int index = 0; index < llistaCotxes.size(); index++) {
+            if (llistaCotxes.get(index).getAlias().equals(carId)) {
+                position = index;
+            }
+        }
+        return position;
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelableArrayList("llistaCotxes", llistaCotxes);
+        super.onSaveInstanceState(outState);
+    }
 }
