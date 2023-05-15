@@ -9,7 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.GridLayoutManager;
+
+
+
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,7 +27,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnItemClickListener{
 
     ArrayList<Cotxe> llistaCotxes;
     RecyclerView recyclerView;
@@ -50,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 if (result.getResultCode()==RESULT_OK){
                     switch (result.getData().getIntExtra("tipus",0)){
                         case ADD:
-                            Cotxe cotxe = result.getData().getParcelableExtra("addCotxe");
+                            Cotxe cotxe = result.getData().getParcelableExtra("afegir_cotxe");
                             llistaCotxes.add(cotxe);
                             cotxeAdapter.notifyDataSetChanged();
                             break;
@@ -62,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             createDummyContent();
             cotxeAdapter = new CotxeAdapter(llistaCotxes);
-            //cotxeAdapter.setClickListener(this);
             recyclerView.setAdapter(cotxeAdapter);
 
         }
@@ -90,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(this, AfegirCotxe.class);
                 intent.putExtra("llista_cotxes",llistaCotxes);
-                intent.putExtra("escriure_cotxe", ADD);
+                intent.putExtra("tipus", ADD);
                 activityResultLauncher.launch(intent);
 
                 //startActivity(intent);
@@ -102,14 +110,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /* @Override
-    public void onClick(View vie, int position){
+    @Override
+    public void onClick(View view, int position){
       Intent intent = new Intent(getApplicationContext(), infoCotxe.class);
       intent.putExtra("cotxe", llistaCotxes.get(position));
       activityResultLauncher.launch(intent);
     }
 
-     */
+
+
+
 
 
 

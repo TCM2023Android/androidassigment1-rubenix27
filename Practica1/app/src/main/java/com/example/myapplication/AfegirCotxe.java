@@ -90,9 +90,9 @@ public class AfegirCotxe extends AppCompatActivity{
         }else{
             Intent intentAfegir = new Intent(getApplicationContext(),MainActivity.class);
             //MIRAR COM FER EL ADD, ells el add el tenen com un CASE de un activityResult
-            intentAfegir.putExtra("escriu_cotxe", MainActivity.ADD);
-            intentAfegir.putExtra("Afegir_cotxe",cotxe);
-            setResult(RESULT_OK,intentAfegir);
+            intentAfegir.putExtra("tipus", MainActivity.ADD);
+            intentAfegir.putExtra("afegir_cotxe",cotxe);
+            setResult(RESULT_OK, intentAfegir);
         }
         finish(); //tanca la pantalla
     }
