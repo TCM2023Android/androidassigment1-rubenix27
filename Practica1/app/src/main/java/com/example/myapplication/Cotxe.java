@@ -17,13 +17,13 @@ public class Cotxe implements Parcelable {
    private String marca;
    private String model;
    private double cilindrada;
-   private long telefon;
+   private String telefon;
    private boolean automatic;
    private double longitud;
    private double latitud;
 
 
-   public Cotxe(String alias, String marca, String model, double cilindrada, long telefon, boolean automatic, double longitud, double latitud){
+   public Cotxe(String alias, String marca, String model, double cilindrada, String telefon, boolean automatic, double longitud, double latitud){
       this.alias=alias;
       this.marca=marca;
       this.model=model;
@@ -71,11 +71,11 @@ public class Cotxe implements Parcelable {
       this.cilindrada = cilindrada;
    }
 
-   public long getTelefon() {
+   public String getTelefon() {
       return telefon;
    }
 
-   public void setTelefon(long telefon) {
+   public void setTelefon(String telefon) {
       this.telefon = telefon;
    }
 
@@ -126,7 +126,7 @@ public class Cotxe implements Parcelable {
       parcel.writeString(marca);
       parcel.writeString(model);
       parcel.writeDouble(cilindrada);
-      parcel.writeLong(telefon);
+      parcel.writeString(telefon);
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
          parcel.writeBoolean(automatic);
       }
@@ -140,7 +140,7 @@ public class Cotxe implements Parcelable {
       marca=in.readString();
       model=in.readString();
       cilindrada=in.readDouble();
-      telefon=in.readLong();
+      telefon=in.readString();
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
          if (in.readBoolean()) automatic = true;
          else automatic = false;

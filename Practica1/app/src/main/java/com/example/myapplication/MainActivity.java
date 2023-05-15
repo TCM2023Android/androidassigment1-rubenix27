@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
 
     ActivityResultLauncher<Intent> activityResultLauncher, passingTextResult;
     public static final int ADD = R.id.action_add;
+    //AFEGIR UN UPDATE
 
 
     @Override
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
                 if (result.getResultCode()==RESULT_OK){
                     switch (result.getData().getIntExtra("tipus",0)){
                         case ADD:
-                            Cotxe cotxe = result.getData().getParcelableExtra("afegir_cotxe");
+                            Cotxe cotxe = result.getData().getParcelableExtra("afegirCotxe");
                             llistaCotxes.add(cotxe);
                             cotxeAdapter.notifyDataSetChanged();
                             break;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
         if (savedInstanceState == null) {
             createDummyContent();
             cotxeAdapter = new CotxeAdapter(llistaCotxes);
+            cotxeAdapter.setClickListener(this);
             recyclerView.setAdapter(cotxeAdapter);
 
         }
@@ -78,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
     }
 
     private void createDummyContent() {
-        llistaCotxes.add(new Cotxe("1234DYD", "SEAT", "IBIZA", 23, 64323232, false, 444, 444));
-        llistaCotxes.add(new Cotxe("9843FFF", "SEAT", "LEON", 40, 64323232, true, 444, 444));
+        llistaCotxes.add(new Cotxe("1234DYD", "SEAT", "IBIZA", 23, "64323232", false, 444, 444));
+        llistaCotxes.add(new Cotxe("9843FFF", "SEAT", "LEON", 40, "64323232", true, 444, 444));
     }
 
 
@@ -87,25 +89,16 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent = new Intent(getApplicationContext(), AfegirCotxe.class);
+        intent.putExtra("llista_cotxes",llistaCotxes);
+        intent.putExtra("tipus", ADD);
+        activityResultLauncher.launch(intent);
 
-        switch (item.getItemId()) {
-            case R.id.action_add:
-                Log.v("Menú", "menu clicked");
-
-                Intent intent = new Intent(this, AfegirCotxe.class);
-                intent.putExtra("llista_cotxes",llistaCotxes);
-                intent.putExtra("tipus", ADD);
-                activityResultLauncher.launch(intent);
-
-                //startActivity(intent);
-
-
-                break;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,13 +109,6 @@ public class MainActivity extends AppCompatActivity implements CotxeAdapter.OnIt
       intent.putExtra("cotxe", llistaCotxes.get(position));
       activityResultLauncher.launch(intent);
     }
-
-
-
-
-
-
-
 
 
 }

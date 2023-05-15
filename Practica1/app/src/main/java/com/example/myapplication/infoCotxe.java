@@ -60,8 +60,21 @@ public class infoCotxe extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 if(result.getResultCode()==RESULT_OK){
-                    Cotxe infoCotxe = result.getData().getParcelableExtra("info_cotxe");
-                //FALTA ACABAR!!!
+                    Cotxe infoCotxe = result.getData().getParcelableExtra("cotxe_modificar");
+                    tvPlate.setText(infoCotxe.getAlias());
+                    tvMarca.setText(infoCotxe.getMarca());
+                    tvModel.setText(infoCotxe.getModel());
+                    tvCilindrada.setText(String.valueOf(infoCotxe.getCilindrada()));
+                    tvTelefon.setText(infoCotxe.getTelefon());
+                    chBoxAutomatic.setChecked(infoCotxe.isAutomatic());
+                    tvLatitud.setText(String.valueOf(infoCotxe.getLatitud()));
+
+                    Intent resultat = new Intent(getApplicationContext(), MainActivity.class);
+                    //resultat.putExtra("tipus", MainActivity.UPDATE);
+                    resultat.putExtra("modifyCotxe", infoCotxe);
+                    setResult(RESULT_OK, resultat);
+                    activity.finish();
+
                 }
             }
         });

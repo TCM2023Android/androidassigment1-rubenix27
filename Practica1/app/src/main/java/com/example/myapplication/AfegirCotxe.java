@@ -44,7 +44,22 @@ public class AfegirCotxe extends AppCompatActivity{
 
         llistaCotxes = new ArrayList<>();
 
+        /*Cotxe cotxeModificar = getIntent().getParcelableExtra("cotxe_modificar");
+        if(cotxeModificar!=null){
+            etAlias.setText(cotxeModificar.getAlias());
+            etMarca.setText(cotxeModificar.getMarca());
+            etModel.setText(cotxeModificar.getModel());
+            etCilindrada.setText(String.valueOf(cotxeModificar.getCilindrada()));
+            etTelefon.setText(cotxeModificar.getTelefon());
+            chBoxAutomatic.setChecked(cotxeModificar.isAutomatic());
+            etLatitud.setText(String.valueOf(cotxeModificar.getLatitud()));
+            etLongitud.setText(String.valueOf(cotxeModificar.getLongitud()));
+            modificar=true;
+        }else{
+            modificar=false;
+        }
 
+         */
     }
 
     @Override
@@ -53,45 +68,32 @@ public class AfegirCotxe extends AppCompatActivity{
         return true;
     }
 
-   /* @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.action_back:
-                Log.v("Menú","menu clicked");
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 
     public void recollirDadesCotxe(View view){
         String alias = etAlias.getText().toString();
         String marca = etMarca.getText().toString();
         String model = etModel.getText().toString();
-        String cilindrada = etCilindrada.getText().toString();
         String telefon =etTelefon.getText().toString();
         String longitud =etLongitud.getText().toString();
         String latitud = etLatitud.getText().toString();
         boolean a = chBoxAutomatic.isChecked();
-        double dCilindrada = Double.parseDouble(cilindrada);
-        Long lTelefon = Long.parseLong(telefon);
+        double dCilindrada = Double.parseDouble(etCilindrada.getText().toString());
+
         double dLongitud = Double.parseDouble(longitud);
         double dLatitud = Double.parseDouble(latitud);
 
-        Cotxe cotxe = new Cotxe(alias,marca,model,dCilindrada,lTelefon,a,dLongitud,dLatitud);
+        Cotxe cotxe = new Cotxe(alias,marca,model,dCilindrada,telefon,a,dLongitud,dLatitud);
 
         if(modificar){
             Intent intentModificat = new Intent();
             intentModificat.putExtra("car_modificar",cotxe);
             setResult(RESULT_OK, intentModificat);
         }else{
-            Intent intentAfegir = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intentAfegir = new Intent(getApplicationContext(), MainActivity.class);
             //MIRAR COM FER EL ADD, ells el add el tenen com un CASE de un activityResult
             intentAfegir.putExtra("tipus", MainActivity.ADD);
-            intentAfegir.putExtra("afegir_cotxe",cotxe);
+            intentAfegir.putExtra("afegirCotxe",cotxe);
             setResult(RESULT_OK, intentAfegir);
         }
         finish(); //tanca la pantalla
@@ -106,5 +108,17 @@ public class AfegirCotxe extends AppCompatActivity{
         finish();
     }
 
+  /* @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.action_back:
+                Log.v("Menú","menu clicked");
 
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 }
