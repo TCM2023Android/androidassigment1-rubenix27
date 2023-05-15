@@ -19,5 +19,7 @@
     <string name="plate">Plate</string>
     <string name="eliminar">Delete</string>
     <string name="escriu_matricula">Type a plate</string>
-        <string name="obrirGoogleMaps">Open Maps</string>
+    <string name="obrirGoogleMaps">Open Maps</string>
+    <string name="editar">edit</string>
+    <string name="trucar">call</string>
 </resources>

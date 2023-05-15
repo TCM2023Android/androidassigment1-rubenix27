@@ -4,13 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="false"
+    android:layout_centerHorizontal="false"
+    android:layout_centerVertical="false"
+    android:foregroundGravity="center"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp">
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:backgroundTint="#FF5722"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconGravity="textTop"
+            app:iconSize="22dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="80dp">
+        android:paddingLeft="16dp"
+        android:paddingTop="35dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/aliasText"
@@ -30,7 +56,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/marcaText"
@@ -50,7 +78,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/modelText"
@@ -70,7 +100,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/cilindradaText"
@@ -90,7 +122,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/phoneText"
@@ -125,7 +159,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/lengthText"
@@ -146,6 +182,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:paddingBottom="50dp">
 
         <TextView
@@ -166,29 +204,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <Button
             android:id="@+id/googleMapsBtn"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00BCD4"
+            android:gravity="center"
             android:onClick="cancelBtn"
             android:text="@string/obrirGoogleMaps" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/phoneButton"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="Llamar" />
+            android:layout_weight="1"
+            android:backgroundTint="#00BCD4"
+            android:gravity="center"
+            android:text="@string/trucar" />
 
     </LinearLayout>
 
@@ -196,15 +234,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="200dp"
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:backgroundTint="#FF5722"
-            android:text="delete" />
+            android:layout_weight="1"
+            android:backgroundTint="#8BC34A"
+            android:text="@string/editar" />
     </LinearLayout>
 
 </LinearLayout>

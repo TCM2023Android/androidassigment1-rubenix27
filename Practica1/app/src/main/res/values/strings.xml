@@ -18,5 +18,7 @@
     <string name="marca">Marca</string>
     <string name="plate">Plate</string>
     <string name="eliminar">Eliminar</string>
-    <string name="obrirGoogleMaps">Obrir al Maps</string>
+    <string name="obrirGoogleMaps">Google Maps</string>
+    <string name="editar">editar</string>
+    <string name="trucar">trucar</string>
 </resources>
