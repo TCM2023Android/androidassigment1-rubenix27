@@ -104,9 +104,6 @@ public class AfegirCotxe extends AppCompatActivity{
     }
 
 
-    public void cancelBtn(View view){
-        finish();
-    }
 
   /* @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
